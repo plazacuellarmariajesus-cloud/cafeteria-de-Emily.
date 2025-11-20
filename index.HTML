@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cafetería La Taza — Inicio</title>
+  <meta name="description" content="Cafetería La Taza: cafés artesanales, postres horneados y las mejores ofertas.">
+  <style>
+    :root{
+      --marron-oscuro: #4b2e2a;
+      --marron: #7a4f3a;
+      --marron-claro: #b98e73;
+      --crema: #f3e9e1;
+      --text: #2b1b17;
+      --card-shadow: 0 6px 18px rgba(43,27,23,0.12);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--crema),#fff);color:var(--text);}
+
+    /* Layout */
+    header{background:var(--marron);color:var(--crema);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--marron-oscuro),var(--marron));display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--crema);box-shadow:var(--card-shadow)}
+    nav a{color:var(--crema);text-decoration:none;margin-left:14px;font-weight:600}
+    nav a.active{text-decoration:underline}
+
+    main{padding:28px;max-width:1100px;margin:18px auto}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .hero-card{background:linear-gradient(180deg,var(--marron-claro),#f7efe9);padding:20px;border-radius:14px;box-shadow:var(--card-shadow)}
+    .hero h1{margin:0 0 12px;font-size:2rem;color:var(--marron-oscuro)}
+    .hero p{margin:0 0 18px}
+    .cta{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--marron);color:var(--crema);text-decoration:none;font-weight:700}
+
+    /* Productos */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
+    .card{background:var(--crema);border-radius:12px;padding:12px;box-shadow:var(--card-shadow);overflow:hidden}
+    .card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+    .card h3{margin:10px 0 6px}
+    .price{font-weight:800;color:var(--marron)}
+
+    /* Ofertas */
+    .offers{display:flex;flex-direction:column;gap:12px}
+    .offer{background:linear-gradient(90deg,#fff,#f7efe9);padding:14px;border-radius:12px;border:1px solid rgba(122,79,58,0.08)}
+
+    footer{margin-top:28px;padding:22px;background:var(--marron-oscuro);color:var(--crema);text-align:center;border-radius:10px}
+
+    /* Simple page switching (single file "multi-page") */
+    section.page{display:none}
+    section.page.active{display:block}
+
+    /* Responsive */
+    @media (max-width:860px){
+      .hero{grid-template-columns:1fr}
+      .logo{width:44px;height:44px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">LT</div>
+      <div>
+        <div style="font-weight:800">Cafetería La Taza</div>
+        <div style="font-size:13px;opacity:0.9">Cafés artesanales & postres horneados</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#inicio" data-target="inicio" class="nav-link">Inicio</a>
+      <a href="#productos" data-target="productos" class="nav-link">Productos</a>
+      <a href="#ofertas" data-target="ofertas" class="nav-link">Ofertas</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- INICIO -->
+    <section id="inicio" class="page active">
+      <div class="hero">
+        <div class="hero-card">
+          <h1>Bienvenido a Cafetería La Taza</h1>
+          <p>Somos un espacio donde cada taza cuenta una historia. Café de origen seleccionado, métodos de preparación artesanal y postres horneados diariamente.</p>
+          <p style="margin-top:12px"><strong>Horario:</strong> Lun - Dom: 08:00 - 20:00</p>
+          <a class="cta" data-target="productos" href="#productos">Ver productos</a>
+        </div>
+        <div>
+          <!-- Imagen de hero (Unsplash) -->
+          <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=60" alt="Taza de café" style="width:100%;border-radius:12px;box-shadow:var(--card-shadow)">
+        </div>
+      </div>
+
+      <section style="margin-top:22px">
+        <h2>Nuestra misión</h2>
+        <p>Ofrecer café de calidad, cultivado y procesado por pequeños productores, preparado con mimo para cada cliente.</p>
+      </section>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section id="productos" class="page" aria-labelledby="productos-title">
+      <div style="text-align:center; margin-bottom: 20px;">
+        <h2 id="productos-title">Nuestros Productos Destacados</h2>
+        <p>Descubre nuestras bebidas especiales y postres artesanales.</p>
+      </div>
+
+      <div class="grid" role="list">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=60" alt="Latte Vainilla">
+          <h3>Latte Vainilla</h3>
+          <p>Café suave con esencia de vainilla natural, espuma artesanal.</p>
+          <div class="price">Bs 17.00</div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=60" alt="Frappé de Caramelo">
+          <h3>Frappé de Caramelo</h3>
+          <p>Refrescante mezcla de café helado con salsa de caramelo.</p>
+          <div class="price">Bs 19.00</div>
+        </article>
+
+        <article class="card">
+          <img src="https://www.recetasnestle.cl/sites/default/files/srh_recipes/bb0a8b1cfca8f77eec55fb6f1fc17390.jpg" alt="Cheesecake de frutos rojos">
+          <h3>Cheesecake de frutos rojos</h3>
+          <p>Postre cremoso con salsa de frambuesa casera.</p>
+          <div class="price">Bs 22.00</div>
+        </article>
+
+        <article class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLn4sZyRQKDWRvYqbpGsnU_diBBo-4uxiuB4r2mjGB7n6WZhbjqeg-5Lbih3_4A1NqII4&usqp=CAU" alt="Croissant artesanal">
+          <h3>Croissant artesanal</h3>
+          <p>Horneado cada mañana con mantequilla natural.</p>
+          <div class="price">Bs 15.00</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- OFERTAS -->
+    <section id="ofertas" class="page" aria-labelledby="ofertas-title">
+      <h2 id="ofertas-title" style="text-align:center;">Ofertas Especiales</h2>
+      <p style="text-align:center;">Promociones con imágenes y animación suave.</p>
+
+      <div class="offers">
+        <div class="offer" style="transition: transform 0.3s;">
+          <img src="https://gourmet.expob2b.es/uploads/fotos_noticias/2019/07/w800px_19887-159948-bebidas-veraniegas-cafe-frappe.jpg" alt="Promo Frappé" style="width:100%; border-radius:10px;">
+          <h3>Verano Fresco: 2x1 en Frappés</h3>
+          <p>Todos los fines de semana de enero.</p>
+        </div>
+
+        <div class="offer" style="transition: transform 0.3s;">
+          <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=60" alt="Oferta cheesecake" style="width:100%; border-radius:10px;">
+          <h3>Combo Especial de Postres</h3>
+          <p>Café + Cheesecake con 15% de descuento.</p>
+        </div>
+
+        <div class="offer" style="transition: transform 0.3s;">
+          <img src="https://sabor.eluniverso.com/wp-content/uploads/2023/09/shutterstock_1773788906.jpg" style="width:100%; border-radius:10px;">
+          <h3>Promo Cumpleañera</h3>
+          <p>Bebida gratis para la cumpleañera + descuento a amigos.</p>
+        </div>
+
+        <div class="offer" style="transition: transform 0.3s;">
+          <img src="https://guiancafe.com/storage/2024/12/galletas-navidenas-cafe.webp" alt="Navideña" style="width:100%; border-radius:10px;">
+          <h3>Oferta Navideña</h3>
+          <p>Café con especias + galleta gratis en diciembre.</p>
+        </div>
+      </div>
+
+      <script>
+        // Animación al pasar el mouse
+        document.querySelectorAll('.offer').forEach(offer => {
+          offer.addEventListener('mouseenter', () => offer.style.transform = 'scale(1.03)');
+          offer.addEventListener('mouseleave', () => offer.style.transform = 'scale(1)');
+        });
+      </script>
+    </section>
+
+    <footer>
+      <div style="font-weight:700">Cafetería La Taza</div>
+      <div style="margin-top:6px">Calle Principal 123 — La Paz, Bolivia • Tel: +591 73123104</div>
+    </footer>
+  </main>
+
+  <script>
+    // Simple single-file page navigation using URL hash
+    function showPage(id){
+      document.querySelectorAll('section.page').forEach(s=>s.classList.remove('active'));
+      const el = document.getElementById(id);
+      if(el) el.classList.add('active');
+
+      // update active link
+      document.querySelectorAll('.nav-link').forEach(a=>a.classList.toggle('active', a.dataset.target===id));
+    }
+
+    // initial from hash
+    const initial = location.hash ? location.hash.replace('#','') : 'inicio';
+    showPage(initial);
+
+    // link clicks
+    document.querySelectorAll('[data-target]').forEach(link=>{
+      link.addEventListener('click', function(e){
+        const t = this.dataset.target;
+        if(t){
+          e.preventDefault();
+          history.pushState(null,'', '#'+t);
+          showPage(t);
+        }
+      })
+    });
+
+    // handle back/forward
+    window.addEventListener('popstate', ()=>{
+      const id = location.hash ? location.hash.replace('#','') : 'inicio';
+      showPage(id);
+    });
+  </script>
+</body>
+</html>
+
